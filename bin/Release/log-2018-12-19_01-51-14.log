@@ -1,0 +1,12 @@
+2018-12-19 01:51:14,284 [ 1] INFO  - Mozliwe jest dotankowanie nastepujacych aut
+2018-12-19 01:51:14,293 [ 1] INFO  - Marka | Pojemnosc baku [L] | Typ paliwa [Pb95|Pb98|LPG|ON]
+2018-12-19 01:51:14,294 [ 1] INFO  - 0. Audi | 25 | Pb95
+2018-12-19 01:51:14,296 [ 1] INFO  - 1. Mercedes | 21 | ON
+2018-12-19 01:51:14,296 [ 1] INFO  - 2. BMW | 12 | LPG
+2018-12-19 01:51:14,297 [ 1] INFO  - 3. Skoda | 89 | ON
+2018-12-19 01:51:14,297 [ 1] INFO  - 4. Ford | 25 | Pb98
+2018-12-19 01:51:14,297 [ 1] INFO  - 5. Fiat | 35 | Pb95
+2018-12-19 01:51:14,298 [ 1] INFO  - Wybierz auto ktore chcesz zatankowac podajac numer
+2018-12-19 01:51:15,120 [ 1] INFO  - Wybierz rodzaj paliwa które chcesz zatankowaæ
+2018-12-19 01:51:16,247 [ 1] INFO  - Podaj liczbe litrow ktore chcesz zatankowac
+2018-12-19 01:51:16,686 [ 4] INFO  - Koniec tankowania

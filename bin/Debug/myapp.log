@@ -1,0 +1,8 @@
+2018-12-18 01:45:13,815 [1] ERROR FuelDistributorConsoleApplication.XmlHelper - Couldn't find "Vehicles.xml" file
+2018-12-18 01:45:58,690 [1] ERROR FuelDistributorConsoleApplication.XmlHelper - Couldn't find "Vehicles.xml" file
+2018-12-18 01:46:16,959 [1] ERROR FuelDistributorConsoleApplication.XmlHelper - Couldn't find "Vehicles.xml" file
+2018-12-18 01:46:16,996 [1] ERROR FuelDistributorConsoleApplication.StartProgram - Couldn't find "Vehicles.xml" file
+2018-12-18 01:48:31,927 [1] ERROR FuelDistributorConsoleApplication.XmlHelper - Couldn't find "Vehicles.xml" file
+2018-12-18 01:48:31,954 [1] ERROR FuelDistributorConsoleApplication.StartProgram - Couldn't find "Vehicles.xml" file
+2018-12-18 01:48:55,847 [1] ERROR FuelDistributorConsoleApplication.XmlHelper - Couldn't find "Vehicles.xml" file
+2018-12-18 01:48:55,870 [1] ERROR FuelDistributorConsoleApplication.StartProgram - Couldn't find "Vehicles.xml" file

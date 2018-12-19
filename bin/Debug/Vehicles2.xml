@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Vehicles>
+<Vehicle>
+  <Name>Audi 80</Name>
+  <FuelCapacity>40</FuelCapacity>
+  <FuelTysspe>ON</FuelTysspe>
+</Vehicle>
+<Vehicle>
+  <Name>Audi Szybkie</Name>
+  <FuelCapacity>25</FuelCapacity>
+  <FuelType>Pb95</FuelType>
+</Vehicle>
+<Vehicle>
+  <Name>Mercedes Wolny</Name>
+  <FuelCapacity>35</FuelCapacity>
+  <FuelType>ON</FuelType>
+</Vehicle>
+<Vehicle>
+  <Name>BMW Jakies</Name>
+  <FuelCapacity>12</FuelCapacity>
+  <FuelType>LPG</FuelType>
+</Vehicle>
+<Vehicle>
+  <Name>Skoda</Name>
+  <FuelCapacity>89</FuelCapacity>
+  <FuelType>ON</FuelType>
+</Vehicle>
+<Vehicle>
+  <Name>Ford</Name>
+  <FuelCapacity>25</FuelCapacity>
+  <FuelType>Pb98</FuelType>
+</Vehicle>
+<Vehicle>
+  <Name>Fiat</Name>
+  <FuelCapacity>35</FuelCapacity>
+  <FuelType>Pb95</FuelType>  
+</Vehicle>
+</Vehicles>
