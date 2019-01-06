@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -9,9 +8,9 @@ namespace FuelDistributorConsoleApplication
 {
     public class FuelDistributor
     {
-        private int carIndex;
+        private uint carIndex;
         private string fuelKind;
-        private uint literAmmount;
+        private uint? literAmmount;
         private List<string> fuelKindsList = new List<string> { "Pb95", "Pb98", "ON", "LPG" };
         private readonly List<Vehicle> vehiclesList;
 
@@ -28,7 +27,7 @@ namespace FuelDistributorConsoleApplication
                 Logger.log.Info("Wybierz auto ktore chcesz zatankowac podajac numer");
                 inputNumber = Console.ReadLine();
 
-                if (!int.TryParse(inputNumber, out int indexVehicle) || this.vehiclesList.Count <= indexVehicle)
+                if (!uint.TryParse(inputNumber, out uint indexVehicle) || this.vehiclesList.Count <= indexVehicle)
                 {
                     Logger.log.Warn("Niepoprawne dane lub numer spoza listy");
                     continue;
@@ -41,51 +40,37 @@ namespace FuelDistributorConsoleApplication
         }        
 
         public void ChooseFuelKind()
-        {
-            string inputKindOfFuel;
-
-            do
-            {
-                Logger.log.Info("Wybierz rodzaj paliwa które chcesz zatankować");
+        {           
+            Logger.log.Info("Wybierz rodzaj paliwa które chcesz zatankować");            
+            var inputKindOfFuel = Console.ReadLine();
             
-                inputKindOfFuel = Console.ReadLine();
-
-                if (!fuelKindsList.Contains(inputKindOfFuel, StringComparer.InvariantCultureIgnoreCase))
-                {
-                    Logger.log.WarnFormat("Brak {0} paliwa w dystrybutorze", inputKindOfFuel);
-                    continue;
-                }
-
-                this.fuelKind = inputKindOfFuel;
-                break;
-
-            } while (true);
+            if (!fuelKindsList.Contains(inputKindOfFuel, StringComparer.InvariantCultureIgnoreCase))
+            {
+                this.fuelKind = null;
+                return;            
+            }
+            
+            this.fuelKind = inputKindOfFuel;
         }
 
         public void ChooseFuelCapacity()
         {
-            string inputLiterNumber;
-            do
+            Logger.log.Info("Podaj liczbe litrow ktore chcesz zatankowac");
+            var inputLiterNumber = Console.ReadLine();
+
+            if (!uint.TryParse(inputLiterNumber, out uint outputLitres) || outputLitres == 0)
             {
-                Logger.log.Info("Podaj liczbe litrow ktore chcesz zatankowac");
-                inputLiterNumber = Console.ReadLine();
+                this.literAmmount = null;
+                return;
+            }
 
-                if (!uint.TryParse(inputLiterNumber, out uint indexVehicle))
-                {
-                    Logger.log.Warn("Niepoprawna ilosc litrow");
-                    continue;
-                }
-
-                this.literAmmount = indexVehicle;
-                break;
-
-            } while (true);
+            this.literAmmount = outputLitres;
         }
 
         public void TankCar()
         {
             bool tanking = true;
-            var timerEnded = new Timer { Interval = this.literAmmount * 100, AutoReset = false };
+            var timerEnded = new Timer { Interval = this.literAmmount == null ? 1 : (double)this.literAmmount * 100, AutoReset = false };
             timerEnded.Elapsed += (sender, args) =>
             {
                 Logger.log.Info("Koniec tankowania!");
@@ -98,21 +83,23 @@ namespace FuelDistributorConsoleApplication
             {
                 Console.Write("Tankowanie...");
                 Task.Delay(1000).Wait();
-            } while (tanking);         
-
+            } while (tanking); 
         }
 
         public void VerifyOperation()
         { 
-            if (!this.fuelKind.Equals(this.vehiclesList.ElementAt(this.carIndex).FuelType, StringComparison.InvariantCultureIgnoreCase))
+            if (this.fuelKind == null || !this.fuelKind.Equals(this.vehiclesList.ElementAt((int)this.carIndex).FuelType, StringComparison.InvariantCultureIgnoreCase))
             {
-                Logger.log.Error("Zle paliwo");
-                return;
+                Logger.log.Error("Zatankowano zle paliwo");
+            }
+            else
+            {
+                Logger.log.Info("Zatankowano poprawne paliwo");
             }
            
-            if (this.literAmmount <= this.vehiclesList.ElementAt(this.carIndex).FuelCapacity)
+            if (this.literAmmount <= this.vehiclesList.ElementAt((int)this.carIndex).FuelCapacity)
             {
-                Logger.log.Info("Prawidlowa ilosc zatankowanego paliwa");
+                Logger.log.Info("Zatankowano prawidlowa ilosc paliwa");
                 return;
             }
 
