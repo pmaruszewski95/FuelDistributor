@@ -9,8 +9,4 @@ C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsol
 C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\obj\Debug\FuelDistributorConsoleApplication.csproj.CopyComplete
 C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\obj\Debug\FuelDistributorConsoleApplication.exe
 C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\obj\Debug\FuelDistributorConsoleApplication.pdb
-C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\bin\Debug\EntityFramework.dll
-C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\bin\Debug\EntityFramework.xml
-C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\bin\Debug\Vehicles.xml

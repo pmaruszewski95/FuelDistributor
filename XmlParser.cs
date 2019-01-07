@@ -39,7 +39,6 @@ namespace FuelDistributorConsoleApplication
                 }
             }
 
-            this.VerifyCorrectnessOfInsertedData(vehiclesList);
             return vehiclesList;
         }
 
@@ -51,37 +50,6 @@ namespace FuelDistributorConsoleApplication
             {
                 Logger.log.InfoFormat(@"{0}. {1} | {2} | {3}", vehiclesList.IndexOf(vehicle), vehicle.Name, vehicle.FuelCapacity, vehicle.FuelType);
             }
-        }
-
-        private void VerifyCorrectnessOfInsertedData(List<Vehicle> vehiclesList)
-        {
-            vehiclesList.ForEach(vehicle =>
-            {
-                if (vehicle.GetType().GetProperties().Any(prop => this.ValidateIfProperyDoesNotSetCorrectly(prop.GetValue(vehicle, null),prop.PropertyType.Name)))
-                {
-                    Logger.log.Error(("Sprawdz poprawnosc pliku XML"));
-                    Environment.Exit(0);
-                }
-            });
-        }    
-
-        private bool ValidateIfProperyDoesNotSetCorrectly(object obj, string TypeName)
-        {
-            if (obj == null)
-            {
-                Logger.log.Error(("Sprawdz poprawnosc pliku XML"));
-                Environment.Exit(0);
-            }
-
-            switch (TypeName)
-            {
-                case "String":
-                    return obj.Equals(string.Empty);
-                case "Int32":
-                    return obj.Equals(default(int));                    
-                default:
-                    return true;
-            }
-        }
+        }        
     }
 }

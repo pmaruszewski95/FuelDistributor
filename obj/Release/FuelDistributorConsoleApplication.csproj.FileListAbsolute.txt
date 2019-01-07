@@ -10,3 +10,5 @@ C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsol
 C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\obj\Release\FuelDistributorConsoleApplication.exe
 C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\obj\Release\FuelDistributorConsoleApplication.pdb
 C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\obj\Release\FuelDistributorConsoleApplication.csprojAssemblyReference.cache
+C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\bin\Release\Vehicles2.xml
+C:\Users\Piotr\Documents\FuelDistributorConsoleApplication\FuelDistributorConsoleApplication\bin\Release\Vehicles3.xml

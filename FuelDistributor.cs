@@ -8,10 +8,17 @@ namespace FuelDistributorConsoleApplication
 {
     public class FuelDistributor
     {
-        private uint carIndex;
-        private string fuelKind;
+        enum FuelKinds
+        {
+            Pb95,
+            Pb98,
+            ON,
+            LPG
+        }
+
+        private uint? carIndex;
         private uint? literAmmount;
-        private List<string> fuelKindsList = new List<string> { "Pb95", "Pb98", "ON", "LPG" };
+        private FuelKinds? fuelKind;
         private readonly List<Vehicle> vehiclesList;
 
         public FuelDistributor(List<Vehicle> vehiclesList)
@@ -22,35 +29,30 @@ namespace FuelDistributorConsoleApplication
         public void ChooseCarMark()
         {
             string inputNumber;
-            do
+          
+            Logger.log.Info("Wybierz auto ktore chcesz zatankowac podajac numer");
+            inputNumber = Console.ReadLine();
+            if (!uint.TryParse(inputNumber, out uint indexVehicle) || this.vehiclesList.Count <= indexVehicle)
             {
-                Logger.log.Info("Wybierz auto ktore chcesz zatankowac podajac numer");
-                inputNumber = Console.ReadLine();
+                this.carIndex = null;
+                return;
+            }
 
-                if (!uint.TryParse(inputNumber, out uint indexVehicle) || this.vehiclesList.Count <= indexVehicle)
-                {
-                    Logger.log.Warn("Niepoprawne dane lub numer spoza listy");
-                    continue;
-                }
-
-                this.carIndex = indexVehicle;
-                break;
-
-            } while (true);
+            this.carIndex = indexVehicle;
         }        
 
         public void ChooseFuelKind()
         {           
             Logger.log.Info("Wybierz rodzaj paliwa które chcesz zatankować");            
             var inputKindOfFuel = Console.ReadLine();
-            
-            if (!fuelKindsList.Contains(inputKindOfFuel, StringComparer.InvariantCultureIgnoreCase))
+            FuelKinds fuelKind;
+            if (!Enum.TryParse(inputKindOfFuel, out fuelKind))
             {
                 this.fuelKind = null;
-                return;            
-            }
+                return;
+            }            
             
-            this.fuelKind = inputKindOfFuel;
+            this.fuelKind = fuelKind;
         }
 
         public void ChooseFuelCapacity()
@@ -81,14 +83,14 @@ namespace FuelDistributorConsoleApplication
 
             do
             {
-                Console.Write("Tankowanie...");
-                Task.Delay(1000).Wait();
+                Console.WriteLine("Tankowanie...");
+                Task.Delay(300).Wait();
             } while (tanking); 
         }
 
         public void VerifyOperation()
-        { 
-            if (this.fuelKind == null || !this.fuelKind.Equals(this.vehiclesList.ElementAt((int)this.carIndex).FuelType, StringComparison.InvariantCultureIgnoreCase))
+        {             
+            if (this.fuelKind == null || !this.fuelKind.ToString().Equals(this.vehiclesList.ElementAt((int)this.carIndex).FuelType, StringComparison.InvariantCultureIgnoreCase))
             {
                 Logger.log.Error("Zatankowano zle paliwo");
             }

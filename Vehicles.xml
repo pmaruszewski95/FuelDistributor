@@ -8,13 +8,13 @@
 <Vehicle>
   <Name>Mercedes</Name>
   <FuelCapacity>21</FuelCapacity>
-  <FuelType>ON</FuelType>
+  <FuelType>ON2</FuelType>
 </Vehicle>
-<Vehicle>
+<Vehicle2>
   <Name>BMW</Name>
-  <FuelCapacity>12</FuelCapacity>
+  <FuelCapacity>120</FuelCapacity>
   <FuelType>LPG</FuelType>
-</Vehicle>
+</Vehicle2>
 <Vehicle>
   <Name>Skoda</Name>
   <FuelCapacity>89</FuelCapacity>
@@ -27,7 +27,7 @@
 </Vehicle>
 <Vehicle>
   <Name>Fiat</Name>
-  <FuelCapacity>35</FuelCapacity>
-  <FuelType>Pb95</FuelType>  
+  <FuelCapacity>32A</FuelCapacity>
+  <FuelType>PB9</FuelType>  
 </Vehicle>
 </Vehicles>
