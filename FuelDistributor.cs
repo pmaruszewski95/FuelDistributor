@@ -32,6 +32,7 @@ namespace FuelDistributorConsoleApplication
           
             Logger.log.Info("Wybierz auto ktore chcesz zatankowac podajac numer");
             inputNumber = Console.ReadLine();
+            Logger.log.InfoFormat("Wybrano pojazd nr. {0}", inputNumber);
             if (!uint.TryParse(inputNumber, out uint indexVehicle) || this.vehiclesList.Count <= indexVehicle)
             {
                 this.carIndex = null;
@@ -45,6 +46,8 @@ namespace FuelDistributorConsoleApplication
         {           
             Logger.log.Info("Wybierz rodzaj paliwa które chcesz zatankować");            
             var inputKindOfFuel = Console.ReadLine();
+            Logger.log.InfoFormat("Wybrano paliwo - {0}", inputKindOfFuel);
+
             FuelKinds fuelKind;
             if (!Enum.TryParse(inputKindOfFuel, out fuelKind))
             {
@@ -59,6 +62,7 @@ namespace FuelDistributorConsoleApplication
         {
             Logger.log.Info("Podaj liczbe litrow ktore chcesz zatankowac");
             var inputLiterNumber = Console.ReadLine();
+            Logger.log.InfoFormat("Wybrano ilosc paliwa - {0}", inputLiterNumber);
 
             if (!uint.TryParse(inputLiterNumber, out uint outputLitres) || outputLitres == 0)
             {
@@ -89,7 +93,13 @@ namespace FuelDistributorConsoleApplication
         }
 
         public void VerifyOperation()
-        {             
+        {  
+            if (this.carIndex == null)
+            {
+                Logger.log.Error("Brak auta");
+                return;
+            }
+
             if (this.fuelKind == null || !this.fuelKind.ToString().Equals(this.vehiclesList.ElementAt((int)this.carIndex).FuelType, StringComparison.InvariantCultureIgnoreCase))
             {
                 Logger.log.Error("Zatankowano zle paliwo");
@@ -105,7 +115,7 @@ namespace FuelDistributorConsoleApplication
                 return;
             }
 
-            Logger.log.Error("Zbyt duza ilosc zatankowanego paliwa");
+            Logger.log.Error("Niepoprawna ilosc zatankowanego paliwa");
         }
     }
 }
